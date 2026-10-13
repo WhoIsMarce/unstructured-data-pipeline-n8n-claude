@@ -1,0 +1,71 @@
+{
+  "name": "Unstructured Data Processing Pipeline",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "data-pipeline",
+        "options": {}
+      },
+      "name": "Webhook Ingestion",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "extracted_text",
+              "value": "={{ $json.body.text }}"
+            },
+            {
+              "name": "item_id",
+              "value": "={{ $json.body.item_id }}"
+            }
+          ]
+        }
+      },
+      "name": "Format Payload",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "resource": "chat",
+        "model": "claude-3-5-sonnet-20241022",
+        "prompt": "Analyze the following user feedback and return ONLY a JSON object with keys 'category', 'sentiment', and 'urgency':\n\n{{ $json.extracted_text }}"
+      },
+      "name": "Claude AI Processing",
+      "type": "n8n-nodes-base.anthropic",
+      "typeVersion": 1,
+      "position": [650, 300]
+    }
+  ],
+  "connections": {
+    "Webhook Ingestion": {
+      "main": [
+        [
+          {
+            "node": "Format Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format Payload": {
+      "main": [
+        [
+          {
+            "node": "Claude AI Processing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}
