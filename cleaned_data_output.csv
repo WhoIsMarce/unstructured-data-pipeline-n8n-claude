@@ -1,0 +1,4 @@
+id,raw_text,category,sentiment,urgency,status
+REV-001,I ordered the Bluetooth headphones last Tuesday. Battery dies in 20 minutes! Needs replacement. Order #4421.,Hardware / Bug,Negative,High,Processed (Local Pipeline)
+REV-002,Absolutely love the new UI update! The dark mode feature is super smooth and fast.,General / Feature Request,Positive,Low,Processed (Local Pipeline)
+REV-003,Charged twice for my monthly subscription. Please refund the extra $15 immediately!,Billing & Refund,Negative,High,Processed (Local Pipeline)

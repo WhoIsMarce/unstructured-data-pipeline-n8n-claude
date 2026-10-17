@@ -53,7 +53,7 @@ By orchestrating **Python**, **n8n automation workflows**, and **Anthropic's Cla
 ### 1. Clone the Repository
 
 ```bash
-git clone [https://github.com/YOUR_USERNAME/unstructured-data-pipeline-n8n-claude.git](https://github.com/YOUR_USERNAME/unstructured-data-pipeline-n8n-claude.git)
+git clone [https://github.com/whoismarce/unstructured-data-pipeline-n8n-claude.git](https://github.com/YOUR_USERNAME/unstructured-data-pipeline-n8n-claude.git)
 cd unstructured-data-pipeline-n8n-claude
 2. Configure Virtual Environment & Dependencies
 Bash
@@ -219,3 +219,26 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+# Unstructured Data Pipeline: n8n + Claude AI (Mock & Live Support)
+
+Pipeline de procesamiento automatizado y asincrónico para la ingesta, limpieza y extracción de información a partir de datos no estructurados (PDFs, texto plano, webhooks), diseñado para ejecutarse tanto con la API de **Anthropic Claude** como en un **Modo de Simulación Local (Mock)** totalmente gratuito.
+
+---
+
+## 🏗️ Arquitectura del Sistema
+
+```text
+[ Datos No Estructurados ] 
+             │
+             ▼
+[ n8n Workflow Automation ]
+             │
+             ▼
+[ Sanitización y Validación ]
+             │
+             ├──────► [ Modo Mock Activo ] ──► [ Simulación Local Gratuita ]
+             │
+             └──────► [ Modo Live ]        ──► [ Anthropic Claude API python pipeline.py

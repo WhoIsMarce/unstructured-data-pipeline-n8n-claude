@@ -1,6 +1,30 @@
-venv/
+# ==============================================================================
+# GITIGNORE - SECURE EXCLUSIONS
+# ==============================================================================
+
+# Environment variables and local secrets
 .env
+*.env
+.env.local
+
+# n8n local execution states, caches and persistent volumes
+n8n_data/
+.n8n/
+
+# Python compiled bytecode, caches, and virtual environments
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+dist/
+build/
+*.egg-info/
+
+# Logs, temporary files, and output data directories
+*.log
+npm-debug.log*
+data/output/
+tmp/
 .DS_Store
-cleaned_data_output.csv
